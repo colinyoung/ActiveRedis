@@ -1,26 +1,30 @@
 module ActiveRedis
   module Model
+    
+    '''
+    Events
+    '''
+    def save
+      self.class.attrs.each do |key,value|
+        puts "#{key} : #{value}"
+      end
+    end
+    
+    def destroy
+    end
+    
+    def destroy_all
+    end
+    
+    def update
+    end
+    
+    def validate
+    end
+    
     module ClassMethods # Events
       @@moments = %w(before after)
       @@phase_blocks = {}
-      
-      '''
-      Events
-      '''
-      def save
-      end
-      
-      def destroy
-      end
-      
-      def destroy_all
-      end
-      
-      def update
-      end
-      
-      def validate
-      end
       
       '''
       Callbacks

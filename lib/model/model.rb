@@ -3,6 +3,7 @@ require 'net/https'
 require 'uri'
 
 require 'module_inheritable_attributes'
+require 'connection_adapters/redis'
 
 module ActiveRedis
   module Model
@@ -21,12 +22,9 @@ module ActiveRedis
       base.extend ClassMethods
       base.send :include, ::ModuleInheritableAttributes
       base.send(:mattr_inheritable, :attrs)
+      base.send(:mattr_inheritable, :client)
       base.instance_variable_set("@attrs", ActiveSupport::HashWithIndifferentAccess.new)
-      puts "Public Instance Methods"
-      public_instance_methods = ClassMethods.public_instance_methods(false)
-      puts public_instance_methods.to_yaml
-      puts "Public Class Methods"
-      puts ClassMethods.methods(false).delete_if {|method_name| public_instance_methods.include?(method_name)}.to_yaml
+      base.instance_variable_set("@client", ActiveRedis::ConnectionAdapters::Redis.new)
     end
     
     # Optional classes
@@ -36,9 +34,8 @@ module ActiveRedis
     '''
     Instance methods
     '''
-    
     def attributes
-      self.class.attrs
+      pp self.class.attrs
     end
     
     '''

@@ -1,5 +1,6 @@
 #require 'active_support/concern'
 #require 'active_support/inflector'
+
 module ActiveRedis
 
   class << self
@@ -9,6 +10,7 @@ module ActiveRedis
   end
 
   autoload :Model, 'model/model'
+  autoload :Redis, "connection_adapters/redis"
   autoload :Timestamps, 'extensions/timestamps'  
 end
 

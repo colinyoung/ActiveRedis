@@ -7,21 +7,18 @@ module ActiveRedis
         # Define storage variables
         field_name = args.first.to_s
         var_name = field_name.underscore.downcase
-        var_symbol = ":#{var_name}"
-        attrs[var_symbol] = nil
-        puts attrs.to_json
-        puts "=> Defined storage var '#{var_name}'"
+        attrs[var_name] = nil
         
         # Define getters and setters
         class_eval <<-EOS
         
           def #{var_name}
-            return self.class.attrs[#{var_symbol}] if self.class.attrs[#{var_symbol}].present?
+            return self.class.attrs["#{var_name}"] if self.class.attrs["#{var_name}"].present?
             nil
           end
           
           def #{var_name}=(*args)
-            self.class.attrs[#{var_symbol}] = args.first
+            self.class.attrs["#{var_name}"] = args.first
           end
           
         EOS
