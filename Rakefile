@@ -15,12 +15,12 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "cbaction"
-  gem.homepage = "http://github.com/cloudbot/cbaction"
+  gem.homepage = "http://github.com/colinyoung/ActiveRedis"
   gem.license = "MIT"
-  gem.summary = %Q{Cloudbot Actions Gem}
-  gem.description = %Q{Cloudbot Actions}
-  gem.email = "bschanfeldt@gmail.com"
-  gem.authors = ["Blaine Schanfeldt"]
+  gem.summary = %Q{an ActiveRecord-y interface for Redis}
+  gem.description = %Q{an ActiveRecord-y interface for Redis}
+  gem.email = "me@colinyoung.com"
+  gem.authors = ["Colin Young"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -47,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "cbaction #{version}"
+  rdoc.title = "active_redis #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
