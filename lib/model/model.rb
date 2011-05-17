@@ -13,7 +13,7 @@ module ActiveRedis
       accessors
       finders
       configuration
-      callbacks
+      events
       validations
     ).each {|submodule| require "model/#{submodule}" }
     
