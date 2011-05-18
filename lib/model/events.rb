@@ -5,9 +5,9 @@ module ActiveRedis
     Events
     '''
     def save
-      self.class.attrs.each do |key,value|
-        puts "#{key} : #{value}"
-      end
+      # self.class.attrs.each do |key,value|
+      #   puts "#{key} : #{value}"
+      # end
     end
     
     def destroy

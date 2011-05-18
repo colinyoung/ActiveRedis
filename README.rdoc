@@ -1,6 +1,6 @@
 = active_redis
 
-Description goes here.
+I may not complete this -- might go for an Ohm extension instead.  ActiveRedis is/was supposed to be an ActiveRecord interface for redis -- Ohm does that, I just read its description wrong.
 
 == Contributing to active_redis
  
